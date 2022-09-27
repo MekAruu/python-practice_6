@@ -1,0 +1,360 @@
+1.1
+x=[]
+c=int(input('Enter number of elements:'))
+x=[ int(input('Enter elements:')) for i in range (0, c) ]
+max_x = max(x)
+print('Maximum element:', max_x)
+res=x[::-1]
+print('Array in reverse order:', res)
+
+1.2
+import numpy
+
+a = input("Enter numbers:")
+list_new = list(map(float, a.split()))
+
+mean_list = list_new
+mean = numpy.mean(mean_list)
+
+for i in range(len(list_new)):
+    if mean_list[i] == 0:
+        mean_list[i] = mean
+
+print("array if replace 0 with mean", mean_list)
+
+2.1
+x=[]
+c=int(input('Enter number of elements:'))
+x=[ int(input('Enter elements:')) for i in range (0, c) ]
+min_x=min(x)
+print('Minimum element:', min_x)
+
+2.2
+a = input("Enter numbers:")
+list_new = list(map(int, a.split()))
+
+list_positive = []
+list_negative = []
+
+for i in range(len(list_new)):
+    if list_new[i] <= 0:
+        list_negative.append(list_new[i])
+    else:
+        list_positive.append((list_new[i]))
+
+print("2nd array: ",list_positive)
+
+3.1
+import itertools
+s = input("Enter array:")
+list_new = list(map(float, s.split()))
+
+result = sum(itertools.islice(list_new, 0,len(list_new),2))
+
+print("Array:", list_new)
+print("Sum of odd elements:", result)
+
+3.2
+arr = input("Enter array:")
+list_new = list(map(int, arr.split()))
+
+for i in range(len(list_new)):
+    if list_new[i] < 15:
+        list_new[i] = list_new[i] * 2
+print("Final array:", list_new)
+
+4.1
+arr = input("Enter array:")
+list_new = list(map(int, arr.split()))
+
+max = list_new[0]
+maxID = 0
+for i in range(len(list_new)):
+    if list_new[i] >= max:
+        max = list_new[i]
+        maxID = i
+
+print("Maximum number in array:", max)
+print("Ordinal number for him",end=" ")
+
+if maxID == 0: print("First:")
+elif maxID == 1:print("Second:")
+elif maxID == 2:print("Third:")
+else: print('{}th'.format(maxID+1))
+
+4.2
+arr = input("Enter array:")
+list_new = list(map(int, arr.split()))
+
+list_odd = []
+
+for i in range(len(list_new)):
+    if list_new[i] % 2 != 0:
+        list_odd.append(list_new[i])
+list_odd.sort(reverse=True)
+
+if len(list_odd)==0:
+    print("No odd numbers")
+else:
+    print("Odd array:", list_odd)
+
+5.1
+a = int(input("Length of array:"))
+arr = input("Enter array:")
+list_new = list(map(int, arr.split()))
+
+for i in range(a):
+    for l in range(i+1,a):
+        if list_new[i] == list_new[l]:
+            if list_new[i] < 0 and list_new[l] < 0:
+                print(list_new[i], list_new[l])
+
+5.2
+arr = input("Enter array:")
+list_new = list(map(int, arr.split()))
+
+list_new = list(dict.fromkeys(list_new))
+print(list_new)
+
+6.1
+arr = input("Enter array:")
+list_new = list(map(int, arr.split()))
+
+list_new.sort()
+print("Maximum number in array:", list_new[len(list_new)-1])
+
+list_new.sort(reverse=True)
+print("Minimum number in array:", list_new[len(list_new)-1])
+
+6.2
+arr = input("Enter array:")
+list_new = list(map(int, arr.split()))
+
+sum = 0
+for i in range(len(list_new)):
+    if list_new[i] > 5:
+        sum += list_new[i]
+print("Sum:",sum)
+
+7.1
+arr = input("Enter array:")
+list_new = list(map(int, arr.split()))
+
+sum = 0
+product = 1
+for i in range(len(list_new)):
+    if list_new[i] % 2 == 0:
+        sum += list_new[i]
+    if list_new[i] % 2 != 0:
+       product *= list_new[i]
+
+print("Sum of numbers:",sum)
+print("Product of numbers:",product)
+7.2
+arr = input("Enter array:")
+list_new = list(map(int, arr.split()))
+
+max = list_new[0]
+maxID = 0
+for i in range(len(list_new)):
+    if list_new[i] > max:
+        max = list_new[i]
+        maxID = i
+
+min = list_new[0]
+minID = 0
+for l in range(len(list_new)):
+    if list_new[l] < min:
+        min = list_new[l]
+        minID = l
+
+print("Maximum value:",max)
+print("Minimum value:",min)
+list_new[minID] = max
+list_new[maxID] = min
+print("Swapped array:",list_new)
+
+8.2
+import numpy
+arr = input("Enter array:")
+list_new = list(map(int, arr.split()))
+
+mean = numpy.mean(list_new)
+
+for i in range(len(list_new)):
+    if list_new[i] == 0:
+        list_new[i] = mean
+
+print("Result:",list_new)
+
+9.1
+arr = input("Enter array:")
+list_new = list(map(float, arr.split()))
+
+min = abs(list_new[0])
+minID = 0
+
+for i in range(len(list_new)):
+    if abs(list_new[i]) <= min:
+        min = abs(list_new[i])
+        minID = i
+
+print("Minimum element in array:", list_new[minID])
+list_new.reverse()
+
+print("Array in reverse order: ", list_new)
+
+10.1
+arr = input("Enter array:")
+list_new = list(map(float, arr.split()))
+
+absence = True
+for i in range(len(list_new)):
+    for l in range(i+1,len(list_new)):
+        if list_new[i] == list_new[l]:
+            absence = False
+            print("Duplicates:",list_new[i])
+
+if absence == True:
+    print("No duplicates")
+
+10.2
+arr = input("Enter array:")
+list_new = list(map(float, arr.split()))
+
+print("Original array:",list_new)
+
+for i in range(len(list_new)):
+    if list_new[i] < 10 :
+        list_new[i] = 0
+    elif list_new[i] > 20:
+        list_new[i] = 1
+
+print("Changed array:",list_new)
+
+11.2
+arr = input("Enter array:")
+list_new = list(map(int, arr.split()))
+
+list_new11 = []
+
+for i in list_new:
+    if i < 10:
+        if i % 2 == 0:
+            list_new11.append(i)
+
+if len(list_new11) == 0: print("No such numbers")
+else:print(list_new11)
+
+12.1
+arr = input("Enter array:")
+list_new = list(map(float, arr.split()))
+
+largNumb = False
+list_new.sort(reverse=True)
+
+for i in reversed(list_new):
+    if i%2 != 0:
+        print(i)
+        break 
+
+12.2
+arr1 = input("Enter first array: ")
+list_new1 = list(map(float, arr1.split()))
+
+arr2 = input("Enter second array: ")
+list_new2 = list(map(float, arr2.split()))
+
+list_new2,list_new1 = list_new1,list_new2
+
+print("First array:",list_new1)
+print("Second array:",list_new2)
+
+13.1
+arr = input("Enter array:")
+list_new = list(map(int, arr.split()))
+
+absence = True
+for i in range(len(list_new)):
+    for l in range(i + 1, len(list_new)):
+        if list_new[i] == list_new[l]:
+            absence = False
+            print("Duplicate:", list_new[i], "and indices (", i,",", l, ")")
+if absence == True: print("No duplicate")
+
+13.2
+arr = input("Enter array:")
+list_new = list(map(int, arr.split()))
+
+absence = True
+for i in range(len(list_new)):
+    for l in range(i + 1, len(list_new)):
+        if list_new[i] == list_new[l]:
+            absence = False
+            print("Duplicate:", list_new[i], "and indices (", i,",", l, ")")
+if absence == True: print("No duplicate")
+
+14.1
+arr = input("Enter array:")
+list_new = list(map(int, arr.split()))
+
+max = list_new[0]
+maxID = 0
+for i in range(len(list_new)):
+    if list_new[i] > max:
+        max = list_new[i]
+        maxID = i
+
+min = list_new[0]
+minID = 0
+for l in range(len(list_new)):
+    if list_new[l] < min:
+        min = list_new[l]
+        minID = l
+
+print("Maximum value:",max)
+print("Minimum value:",min)
+list_new[minID] = max
+list_new[maxID] = min
+print("Swapped array:",list_new)
+
+14.2
+import numpy
+
+arr = input("Enter array:")
+list_new = list(map(float, arr.split()))
+
+mean = numpy.mean(list_new)
+
+for i in range(len(list_new)):
+    if list_new[i] > mean:
+        list_new[i] = 1.0
+print(list_new)
+
+15.1
+arr = input("Enter array:")
+list_new = list(map(int, arr.split()))
+
+absence = True
+for i in range(len(list_new)):
+    for l in range(i + 1, len(list_new)):
+        if list_new[i] == list_new[l]:
+            absence = False
+            print("Duplicates:", list_new[i], "and indices (", i,",", l, ")")
+if absence == True: print("No dublicates")
+
+15.2
+arr = input("Enter array:")
+list_new = list(map(int, arr.split()))
+
+list_odd = []
+
+for i in range(len(list_new)):
+    if list_new[i] % 2 != 0:
+        list_odd.append(list_new[i])
+list_odd.sort(reverse=True)
+
+if len(list_odd)==0:
+    print("No odd numbers")
+else:
+    print("Odd array: ", list_odd)
